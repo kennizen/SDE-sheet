@@ -21,7 +21,7 @@ The number of nodes in the list is in the range [0, 500].
 0 <= k <= 2 * 109
 
 ALGO - TC: O(n + n - (n%k)), SC: O(1)
-# find len of list then if k > len k = k % len
+# find len of list then if k > len then k = k % len
 # then traverse for k = len - k
 # point head to that nodes next
 # point that node to null
