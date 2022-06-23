@@ -10,30 +10,29 @@ Example 2:
 
 Input: numRows = 1
 Output: [[1]]
- 
 
 Constraints:
 
 1 <= numRows <= 30
 
-
 class Solution {
 public:
-    vector<vector<int>> generate(int numRows) {
-        
+vector<vector<int>> generate(int numRows) {
+
         vector<vector<int>> res(numRows);
-        
+
         for(int i = 0; i<numRows; i++){
             res[i].resize(i + 1);
             res[i][0] = res[i][i] = 1;
-            
+
             for(int j = 1; j<i; j++) {
                 res[i][j] = res[i-1][j] + res[i-1][j-1];
-            } 
+            }
         }
-        
+
         return res;
     }
+
 };
 
 2nd type given row no. and col no. tell digit
@@ -45,6 +44,8 @@ formula is - row-1 C col-1 or [(row-1)!/(row-1)! * (row-col)!]
 row = 5;
 
 intuition is - nCr use this,
-               4C0, 4C1, 4C2, 4C3, 4C4
-               trick is multiply col no. in the denominator for the next nCr
-               with the previous value.
+4C0, 4C1, 4C2, 4C3, 4C4
+trick is multiply col no. in the denominator for the next nCr
+with the previous value.
+
+                nCr = (nCr-1 * (n - r + 1))/r
